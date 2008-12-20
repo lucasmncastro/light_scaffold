@@ -1,0 +1,25 @@
+ResourceScaffold
+================
+
+Objetivos do resource_view:
+- Extender o resource_controller para a geracao dinamica de view de scaffold;
+  - Nao cobrir todos os casos;
+  - Os scaffolds utilizam as mesmas views no projeto
+  - Ou podemos customizar a view do model
+    ./script/generate scaffold_view contrat
+- Utilizamos helpers para: campos, labels e fields do form;
+
+- Diferencas do do activescaffold: 
+   - Mesmas views do scaffold convencional
+   - Nao usar ajax para fluxos
+   - Mais simples -- documentacao tao simples quanto a do resource_controller
+
+
+
+Example
+=======
+
+Example goes here.
+
+
+Copyright (c) 2008 Lucas de Castro, released under the MIT license
