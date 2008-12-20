@@ -1,6 +1,7 @@
 require 'fileutils'
 
-# Copy views dir.
+scaffold_views = File.join %W(#{RAILS_ROOT} app views scaffold)
+FileUtils.mkdir scaffold_views
 
-FileUtils.mkdir "#{RAILS_ROOT}/app/views/scaffold"
-FileUtils.cp_r 'views/scaffold', "#{RAILS_ROOT}/app/views/scaffold"
+source = File.join %w(vendor plugins resource_view views scaffold/.)
+FileUtils.cp_r source, scaffold_views
