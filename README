@@ -1,25 +1,28 @@
-ResourceScaffold
-================
+= ResourceView
 
-Objetivos do resource_view:
-- Extender o resource_controller para a geracao dinamica de view de scaffold;
-  - Nao cobrir todos os casos;
-  - Os scaffolds utilizam as mesmas views no projeto
-  - Ou podemos customizar a view do model
-    ./script/generate scaffold_view contrat
-- Utilizamos helpers para: campos, labels e fields do form;
-
-- Diferencas do do activescaffold: 
-   - Mesmas views do scaffold convencional
-   - Nao usar ajax para fluxos
-   - Mais simples -- documentacao tao simples quanto a do resource_controller
+Resource View is a simple extension of resource_controller (by James Golick) to drying up basic views: index, show, new, edit, _form.
 
 
+== Features
+- Customize any view without workarounds;
+- Dont cover all the cases; 
+- That's all!
 
-Example
-=======
 
-Example goes here.
+== Get it
+
+If you yet didn't install resource_controller, install it:
+script/plugin install git://github.com/giraffesoft/resource_controller.git
+
+Install resource_view as plugin:
+script/plugin install git://github.com/lucasdecastro/resource_view.git
+
+
+== Usage
+
+TODO
+
+If you want a more complex and beautyful solution for scaffolds see active_scaffold.
 
 
 Copyright (c) 2008 Lucas de Castro, released under the MIT license
