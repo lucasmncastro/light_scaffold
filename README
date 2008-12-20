@@ -4,6 +4,7 @@ Resource View is a simple extension of resource_controller (by James Golick) to 
 
 
 == Features
+
 - Customize any view without workarounds;
 - Dont cover all the cases; 
 - That's all!
@@ -22,7 +23,7 @@ script/plugin install git://github.com/lucasdecastro/resource_view.git
 
 TODO
 
-If you want a more complex and beautyful solution for scaffolds see active_scaffold.
+If you want a more complex and beautiful solution for scaffolds see active_scaffold.
 
 
 Copyright (c) 2008 Lucas de Castro, released under the MIT license
