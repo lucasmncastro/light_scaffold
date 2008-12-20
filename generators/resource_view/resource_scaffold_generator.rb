@@ -1,0 +1,2 @@
+class ResourceViewGenerator < ControllerGenerator
+end
