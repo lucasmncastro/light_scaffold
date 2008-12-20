@@ -1,0 +1,38 @@
+<h1>List of <%= collection_label %></h1>
+
+<table cellspacing="0">
+  <thead>
+    <tr>
+    <%- for column in index_columns %>
+      <th><%= model.human_attribute_name column %></th>
+    <%- end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%- collection.each_with_index do |object, index| %>
+    <tr <%= "class='odd'" if index.odd? -%>>
+      <%- for column in index_columns -%>        
+        <td><%= show_column column, object %></td>
+      <%- end -%>
+
+      <td><%=link_to 'Show', object_url(object), :class => 'show' %></td>
+      <td><%=link_to 'Edit', edit_object_url(object), :class => 'edit' %></td>
+      <td><%=link_to 'Delete', object_url(object), :confirm => 'Are you sure?', :method => :delete, :class => 'destroy' %></td>
+    </tr>
+    <%- end %>
+  </tbody>
+
+  <%- if collection.empty? %>
+  <tfoot>
+    <tr>
+      <td colspan="<%= index_columns.size %>">No record found.</td>
+    </tr>
+  </tfoot>
+  <%- end %>
+</table>
+
+<p>
+  <%= link_to "Adicionar #{object_label}", new_object_url, :class => 'new' %>
+</p>
+

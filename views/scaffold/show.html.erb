@@ -1,0 +1,18 @@
+<h1>Detalhes do <%= object_label %></h1>
+
+<dl>
+<%- for column in show_columns -%>
+  <dd>
+    <%= model.human_attribute_name column %>
+  </dd>
+  <dt>
+    <%= show_column column, object %>
+  </dt>
+<%- end -%>
+</dl>
+
+<p>
+<%= link_to 'Edit', edit_object_url %>
+|
+<%= link_to 'Back', collection_url %>
+</p>
