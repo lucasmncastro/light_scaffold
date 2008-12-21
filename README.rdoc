@@ -33,7 +33,7 @@ You can call theses class methods...
   end
 
 
-Note: Ok.. I know. ResourceView::Base does not look as a controller name. Do you have some idea?
+Note: Ok.. I know. ResourceView::Base does not sound like a name of controller. Do you have some idea?
 
 === Views
 
