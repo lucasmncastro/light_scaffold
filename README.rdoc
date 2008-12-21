@@ -20,7 +20,7 @@ So install resource_view:
 
 === Controller
 
-You can call theses class methods...
+You can call these class methods...
 
   class PagesController < ApplicationController
     resource_controller
