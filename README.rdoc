@@ -1,0 +1,45 @@
+= Resource View
+
+It is a extension of resource_controller plugin (by James Golick) to drying up basic views: index, show, new, edit, _form.
+
+Done for who wants the old dynamic scaffold improved with the power of reuse and customization.
+
+
+== Get it
+
+If you yet didn't install resource_controller, install it:
+script/plugin install git://github.com/giraffesoft/resource_controller.git
+
+So install resource_view:
+script/plugin install git://github.com/lucasdecastro/resource_view.git
+
+
+== Usage
+
+Apesar 
+
+=== Controller
+
+You can call theses class methods...
+
+  class PagesController < ApplicationController
+    resource_controller
+    resource_view
+  end
+
+... or inheriting from ResourceView::Base:
+
+  class PagesController < ResourceView::Base
+  end
+
+
+Note: Ok.. I know. ResourceView::Base does not look as a controller name. Do you have some idea?
+
+=== Views
+
+TODO How to customize views (global or specific)
+
+
+If you want a more complex scaffold see active_scaffold.
+
+Copyright (c) 2008 Lucas de Castro, released under the MIT license
