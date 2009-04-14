@@ -7,13 +7,11 @@ module ResourceView
         helper_method ResourceView::Helper.instance_methods + [:template_exists?]
       
         def try_render_scaffold_template(action_name = self.action_name)
-          if template_exists?
-            render
-          else
-            render :template => "scaffold/#{action_name}"
-          end
+          render
+	rescue
+          render :template => "scaffold/#{action_name}"
         end
-        
+
         index.wants.html do
           try_render_scaffold_template
         end
