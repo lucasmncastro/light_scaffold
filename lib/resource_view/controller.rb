@@ -4,7 +4,7 @@ module ResourceView
       klass.class_eval do
         include ResourceView::Helper
         
-        helper_method ResourceView::Helper.instance_methods + [:template_exists?]
+        helper_method ResourceView::Helper.instance_methods
       
         def try_render_scaffold_template(action_name = self.action_name)
           render
