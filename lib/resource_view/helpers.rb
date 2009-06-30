@@ -1,11 +1,11 @@
 module ResourceView
   module Helpers
     def collection_label
-      model.to_s.pluralize.humanize
+      model.human_name.pluralize
     end
 
     def object_label
-      model.to_s.humanize
+      model.human_name
     end
     
     def columns
