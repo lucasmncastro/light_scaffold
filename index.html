@@ -1,89 +1,181 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-	<title>lucasdecastro/resource_view @ GitHub</title>
-	
-	<style type="text/css">
-		body {
-  		margin-top: 1.0em;
-  		background-color: #114d0f;
-		  font-family: "helvetica"; 
-  		color: #ffffff;
+  <title>lucasdecatro/resource_view @ GitHub</title>
+  
+  <style type="text/css">
+    body {
+      margin-top: 1.0em;
+      background-color: #fff;
+      font-family: "helvetica"; 
+      color: black;
     }
     #container {
       margin: 0 auto;
       width: 700px;
     }
-		h1 { font-size: 3.8em; color: #eeb2f0; margin-bottom: 3px; }
-		h1 .small { font-size: 0.4em; }
-		h1 a { text-decoration: none }
-		h2 { font-size: 1.5em; color: #eeb2f0; }
-    h3 { text-align: center; color: #eeb2f0; }
-    a { color: #eeb2f0; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    h1 { font-size: 3.8em; margin-bottom: 3px; }
+    h1 .small { font-size: 0.4em; }
+    h1 a { text-decoration: none }
+    h2 { font-size: 1.5em; margin-top: 40px;}
+    h1, h2, h3 {
+      color: black;
+    }
+    a { color: green; }
+    .description { font-size: 1.4em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
     .download { float: right; }
-		pre { background: #000; color: #fff; padding: 15px;}
+    pre { background: #000; color: #fff; padding: 15px;}
     hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
     .footer { text-align:center; padding-top:30px; font-style: italic; }
-	</style>
-	
+  </style>
+  
 </head>
 
 <body>
   <a href="http://github.com/lucasdecastro/resource_view"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
   
   <div id="container">
-
-    <div class="download">
-      <a href="http://github.com/lucasdecastro/resource_view/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/lucasdecastro/resource_view/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
-      
-    <h1><a href="http://github.com/lucasdecastro/resource_view">Resource View</a> 
+    <h1><a href="http://github.com/lucasdecastro/resource_view">resource_view</a> 
       <span class="small">by <a href="http://github.com/lucasdecastro">lucasdecastro</a></span></h1>
 
     <div class="description">
-      A simple extension of resource_controller to drying up the basic views.
+      Um gerador de scaffolds dinâmico peso leve.
     </div>
 
-    <p>It is a extension of resource_controller plugin (by James Golick) to drying up basic views: index, show, new, edit, _form.
-
-Done for who wants the old dynamic scaffold improved with the power of reuse and customization. </p><h2>Dependencies</h2>
-<p>resource_controller</p>
-<h2>Install</h2>
-<p>If you yet didn’t install resource_controller, install it:
-
-  script/plugin install git://github.com/giraffesoft/resource_controller.git
-
-So install resource_view:
-
-  script/plugin install git://github.com/lucasdecastro/resource_view.git
-</p>
-<h2>Authors</h2>
-<p>Lucas de Castro<br/>      </p>
-<h2>Contact</h2>
-<p>email@dolucas.com<br/>      </p>
-
-
-    <h2>Download</h2>
     <p>
-      You can download this project in either
-      <a href="http://github.com/lucasdecastro/resource_view/zipball/master">zip</a> or
-      <a href="http://github.com/lucasdecastro/resource_view/tarball/master">tar</a> formats.
+      Enquanto o <a href="http://github.com/giraffesoft/resource_controller/tree">Resource Controller</a> 
+      limpa os controllers da sua aplicação Rails fornecendo a implementação das actions RESTful
+      (index, new, edit, create, update, show e destroy), este plugin permite que você defina
+      num só lugar como devem ser as views desses controllers.
     </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/lucasdecastro/resource_view</pre>
+    
+    
+    <h2>Como funciona?</h2>
+
+    <h3>Diga ao controller que ele vai usar o resource_view</h3>
+
+    <p> 
+    Usando a macros...
+    </p>
+    
+    <pre>
+class UsersController &lt; ApplicationController
+  resource_controller
+  <b>resource_view</b>
+end
+    </pre>
+    
+    <p> 
+    ... ou usando herança:
+    </p> 
+    
+    <pre>
+class UsersController &lt; ResourceView::Base
+end
+    </pre>
+    
+    <p><i> 
+Nota: Concordo, esse nome não ficou legal para um controller, você tem uma sugestão?
+    </i></p> 
+      
+    <p>
+    Com isso você terá um resultado bem parecido com o primeiro que você gerou quando começou a 
+    aprender o Rails.
+    </p>
+    
+    <h3>Customize a Visualização de um Campo</h3>
+    <p>
+    Para mudar a exibiçãoc de um campo do model, crie um método helper com a assinatura 
+    <code><em>nome_do_campo</em>_field(objeto)</code>.
+    </p>
+    
+    <pre>
+module UsersHelper
+  def website_field(object)
+    autolink object.website
+  emd
+end  </pre>
+
+    <p>
+    Para mudar um campo de um formulário, crie um método helper com a assinatura <code><em>nome_do_campo</em>_form_field(formulario, objeto).
+    </p>
+
+    <pre>
+module UsersHelper
+  def about_form_field(form, object)
+    form.text_area 'about', :rows => 5
+  emd
+end  </pre>
+
+    <h3>Sobrescrevendo uma View de um Controller</h3>
+    <p>
+    Se os helpers anteriores não estiverem resolvendo o problema, você pode sobrescrever uma view completa. 
+    Copie a view deseja para dentro do diretório views do controller e faça o que quizer.
+    </p>
+
+    <pre>$ cp app/views/scaffold/show.html.erb app/views/users</pre>
+
+    <p>
+    As views que servem de base para a geração dos scaffolds possuem a nomenclatura e a estrutura padrão, 
+    sem muitos partials e sem muito fru-fru. Assim fica mais fácil de mudá-las.
+    </p>
+    <pre>
+$ ls app/views/scaffold
+TODO listar as views    </pre>
+
+    <h3>Sobrescrevendo uma View para todos os Controllers</h3>
+    <p>
+    Basta alterar os arquivos que estão em app/views/scaffold.
+    </p>
+    
+    <p>
+    Se você quiser voltar atrás e regerá-las, use a task <code>rake resource_view:reset</code>.
+    </p>
+
+    <h3>Informe que campos devem aparecer nas views</h3>
+    <p>
+      TODO mostrar os metodos do controller
+    </p>
+    <p>
+      TODO mostrar que aceita campos mágicos
+    </p>
+    
+    <h2>Instalação</h2>
+    <p> 
+      Primeiro instale o <a href="http://github.com/giraffesoft/resource_controller/tree">Resource Controller</a>:
+      <pre>$ ruby script/plugin install git://github.com/giraffesoft/resource_controller.git</pre>
+      Então instale o Resource View:
+      <pre>$ ruby script/plugin install git://github.com/lucasdecastro/resource_view.git</pre>
+    </p>
+
+      
+    <h2>Alternativas</h2> 
+    <p> 
+      Se você quiser uma solução mais completa, com paginação, pesquisas, temas e muito mais opções,
+      existem algumas alternativas como o ActiveScaffold ou o Streamlined. 
+    </p>
+    <p>
+      Pessoalmente, eu não queria um super gerador de scaffolds como esses, acho que eles 
+      fazem coisas de mais. Eu só queria usar o velho scaffold de uma maneira mais DRY.
+    </p> 
+
+
+    <h2>Créditos</h2>
+    <p>
+      Esse projeto foi criado por <a href="http://blog.dolucas.com">Lucas de Castro</a>, baseado no 
+      <a href="http://github.com/giraffesoft/resource_controller/tree/master">resource_controller</a> 
+      e em algumas idéias do ActiveScaffold.
+    </p>
+    <p>
+      Qualquer coisa, <a href="http://github.com/lucasdecastro/resource_view">crie um fork</a> ou me envie um <a href="mailto:email@dolucas.com">email</a>.
     </p>
       
     <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/lucasdecastro/resource_view">lucasdecastro/resource_view</a>
+    get the source code on GitHub : <a href="http://github.com/lucasdecastro/resource_view">lucasdecastro/resource_view</a>
     </div>
     
   </div>
