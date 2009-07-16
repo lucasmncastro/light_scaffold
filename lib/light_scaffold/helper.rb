@@ -41,9 +41,9 @@ module LightScaffold
       # Warning: the following code is sour. :S
       (InstanceMethods.instance_methods - [:show_column]).each do |method|
         class_eval do
-	  define_method(method) do |column_names|
+	  define_method(method) do |*column_names|
 	    class_eval do
-	      define_method(method) { column_names.to_a.collect(&:to_s) }
+	      define_method(method) { column_names.collect(&:to_s) }
 	    end
           end
 	end
