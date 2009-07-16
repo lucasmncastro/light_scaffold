@@ -1,4 +1,4 @@
-<h1>Editar <%= object_label %></h1>
+<h1>Editing <%= model.human_name %></h1>
 
 <%= error_messages_for model_name %>
 
@@ -10,11 +10,11 @@
   <% end %>
 
   <p>
-    <%=submit_tag "Atualizar", :class => 'update' %>
+    <%= submit_tag "Update", :class => 'update' %>
   </p>
 <% end %>
 
 <p>
-  <%= link_to 'Exibir', object_url, :class => 'show' %> |
-  <%= link_to 'Voltar', collection_url, :class => 'back' %>
+  <%= link_to 'Show', object_url, :class => 'show' %> |
+  <%= link_to 'Back', collection_url, :class => 'back' %>
 </p>

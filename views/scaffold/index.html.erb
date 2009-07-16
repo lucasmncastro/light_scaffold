@@ -1,4 +1,4 @@
-<h1>List of <%= collection_label %></h1>
+<h1>List of <%= model.human_name.pluralize %></h1>
 
 <table cellspacing="0">
   <thead>
@@ -33,6 +33,6 @@
 </table>
 
 <p>
-  <%= link_to "Adicionar #{object_label}", new_object_url, :class => 'new' %>
+  <%= link_to "New #{model.human_name}", new_object_url, :class => 'new' %>
 </p>
 

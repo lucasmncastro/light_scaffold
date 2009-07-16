@@ -1,4 +1,4 @@
-<h1>Adicionar <%= object_label %></h1>
+<h1>New <%= model.human_name %></h1>
 
 <%= error_messages_for model_name %>
 
@@ -10,10 +10,10 @@
   <% end %>
 
   <p>
-    <%= submit_tag "Criar", :class => 'create' %>
+    <%= submit_tag "Create", :class => 'create' %>
   </p>
 <% end %>
 
 <p>
-  <%= link_to 'Voltar', collection_url, :class => 'back' %>
+  <%= link_to 'Back', collection_url, :class => 'back' %>
 </p>
