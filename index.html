@@ -25,7 +25,8 @@
     h1, h2, h3 {
       color: black;
     }
-    a { color: green; }
+    a { color: #536596; }
+    a:hover { color: #677ebe;}
     .description { font-size: 1.4em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
     .download { float: right; }
     pre { background: #000; color: #fff; padding: 15px;}
@@ -36,10 +37,10 @@
 </head>
 
 <body>
-  <a href="http://github.com/lucasdecastro/resource_view"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+  <a href="http://github.com/lucasdecastro/light_scaffold"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
   
   <div id="container">
-    <h1><a href="http://github.com/lucasdecastro/resource_view">resource_view</a> 
+    <h1><a href="http://github.com/lucasdecastro/light_scaffold">Light Scaffold</a> 
       <span class="small">by <a href="http://github.com/lucasdecastro">lucasdecastro</a></span></h1>
 
     <div class="description">
@@ -49,38 +50,34 @@
     <p>
       Enquanto o <a href="http://github.com/giraffesoft/resource_controller/tree">Resource Controller</a> 
       limpa os controllers da sua aplicação Rails fornecendo a implementação das actions RESTful
-      (index, new, edit, create, update, show e destroy), este plugin permite que você defina
-      num só lugar como devem ser as views desses controllers.
+      (index, new, edit, create, update, show e destroy), este plugin permite que você <strong>defina
+      num só lugar como devem ser suas views</strong>.
     </p>
     
     
     <h2>Como funciona?</h2>
 
-    <h3>Diga ao controller que ele vai usar o resource_view</h3>
+    <h3>Diga ao controller que ele vai usar o Light Scaffold</h3>
 
     <p> 
-    Usando a macros...
+    Usando as macros...
     </p>
     
     <pre>
-class UsersController &lt; ApplicationController
+class PagesController &lt; ApplicationController
   resource_controller
-  <b>resource_view</b>
+  <strong>light_scaffold</strong>
 end
     </pre>
     
     <p> 
-    ... ou usando herança:
+    ... ou herança:
     </p> 
     
     <pre>
-class UsersController &lt; ResourceView::Base
+class PagesController &lt; LightScaffold::Base
 end
     </pre>
-    
-    <p><i> 
-Nota: Concordo, esse nome não ficou legal para um controller, você tem uma sugestão?
-    </i></p> 
       
     <p>
     Com isso você terá um resultado bem parecido com o primeiro que você gerou quando começou a 
@@ -94,22 +91,24 @@ Nota: Concordo, esse nome não ficou legal para um controller, você tem uma sug
     </p>
     
     <pre>
-module UsersHelper
+module PagesHelper
+  include LightScaffold::Helper
+
   def website_field(object)
     autolink object.website
   emd
-end  </pre>
+end </pre>
 
     <p>
     Para mudar um campo de um formulário, crie um método helper com a assinatura <code><em>nome_do_campo</em>_form_field(formulario, objeto).
     </p>
 
     <pre>
-module UsersHelper
+module PagesHelper
   def about_form_field(form, object)
-    form.text_area 'about', :rows => 5
+    form.text_area 'about', :rows =&gt; 5
   emd
-end  </pre>
+end </pre>
 
     <h3>Sobrescrevendo uma View de um Controller</h3>
     <p>
@@ -133,7 +132,7 @@ TODO listar as views    </pre>
     </p>
     
     <p>
-    Se você quiser voltar atrás e regerá-las, use a task <code>rake resource_view:reset</code>.
+    Se você quiser voltar atrás e regerá-las, use a task <code>rake light_scaffold:reset</code>.
     </p>
 
     <h3>Informe que campos devem aparecer nas views</h3>
@@ -148,8 +147,8 @@ TODO listar as views    </pre>
     <p> 
       Primeiro instale o <a href="http://github.com/giraffesoft/resource_controller/tree">Resource Controller</a>:
       <pre>$ ruby script/plugin install git://github.com/giraffesoft/resource_controller.git</pre>
-      Então instale o Resource View:
-      <pre>$ ruby script/plugin install git://github.com/lucasdecastro/resource_view.git</pre>
+      Então instale o Light Scaffold:
+      <pre>$ ruby script/plugin install git://github.com/lucasdecastro/light_scaffold.git</pre>
     </p>
 
       
@@ -171,11 +170,11 @@ TODO listar as views    </pre>
       e em algumas idéias do ActiveScaffold.
     </p>
     <p>
-      Qualquer coisa, <a href="http://github.com/lucasdecastro/resource_view">crie um fork</a> ou me envie um <a href="mailto:email@dolucas.com">email</a>.
+      Qualquer coisa, <a href="http://github.com/lucasdecastro/light_scaffold">crie um fork</a> ou me envie um <a href="mailto:email@dolucas.com">email</a>.
     </p>
       
     <div class="footer">
-    get the source code on GitHub : <a href="http://github.com/lucasdecastro/resource_view">lucasdecastro/resource_view</a>
+    get the source code on GitHub : <a href="http://github.com/lucasdecastro/light_scaffold">lucasdecastro/light_scaffold</a>
     </div>
     
   </div>
