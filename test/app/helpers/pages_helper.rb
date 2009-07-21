@@ -1,6 +1,6 @@
 module PagesHelper
   include LightScaffold::Helper
-  
+ 
   text_area 'content'
   # or
   #
@@ -12,13 +12,13 @@ module PagesHelper
   # or 
   #
   # def title_form_column(form, object)
-  #   form.text_field_area 'title', :class => 'big'
+  #   form.text_field 'title', :class => 'big'
   # end
 
   index_columns :title
   # or
   #
-  # def index_columns
+  # def form_columns
   #   'title'
   # end
 end
