@@ -2,6 +2,8 @@ module LightScaffold
   module Controller
     def self.included(klass)
       klass.class_eval do
+        helper LightScaffold::Helper
+
         def try_render_scaffold_template(action_name = self.action_name)
           render
 	rescue
