@@ -18,7 +18,11 @@ module PagesHelper
   index_columns :title
   # or
   #
-  # def form_columns
+  # def index_columns
   #   'title'
   # end
+
+  def title_column(object)
+    content_tag :em, object.title
+  end
 end

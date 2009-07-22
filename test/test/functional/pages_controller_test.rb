@@ -66,6 +66,11 @@ class PagesControllerTest < ActionController::TestCase
     assert_link_to 'Back', pages_path
   end
 
+  test 'on GET show should show title inside <em> tag' do
+    get_show
+    assert_tag :tag => 'em', :content => @welcome.title
+  end
+
   # on GET :show
   
   test 'on GET new should show title field with css class :big' do
