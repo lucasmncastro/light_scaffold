@@ -1,11 +1,15 @@
 module LightScaffold
+
+  # This helper can be included in a helper to easility writing generic views;
+  #
+  # Some methods define which columns will show on index, show and form views:
+  # columns, index_columns, show_columns and form_columns
   module Helper
     def self.included(base)
       base.send :include, LightScaffold::Helper::InstanceMethods
       base.send :extend,  LightScaffold::Helper::ClassMethods
     end
-
-    # Name of methods used to define which columns will show on index, show and form views.
+   
     COLUMNS_METHODS = %w(index_columns show_columns form_columns)
     HIDE_COLUMNS    = %w(id created_at updated_at password)
 
@@ -19,7 +23,11 @@ module LightScaffold
 
       # You are free to overrides this method.
       def columns
-        model.column_names - HIDE_COLUMNS
+        resource_class.column_names - HIDE_COLUMNS
+      end
+      
+      def resource_class
+        controller_name.classify.constantize
       end
       
       # Helper used in index and show views to send show the value of a column.
@@ -41,12 +49,12 @@ module LightScaffold
       # Warning: the following code is sour. :S
       (InstanceMethods.instance_methods - [:show_column]).each do |method|
         class_eval do
-	  define_method(method) do |*column_names|
-	    class_eval do
-	      define_method(method) { column_names.collect(&:to_s) }
-	    end
+          define_method(method) do |*column_names|
+            class_eval do
+              define_method(method) { column_names.collect(&:to_s) }
+            end
           end
-	end
+        end
       end
 
       # Creates class methods with some names of Form Helpers methods.

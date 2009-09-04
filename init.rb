@@ -1,1 +1,1 @@
-ActionController::Base.extend LightScaffold::ActionControllerExtension
+
