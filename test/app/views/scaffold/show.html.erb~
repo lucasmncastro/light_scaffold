@@ -1,0 +1,18 @@
+<h1><%= resource_class.human_name %> Details</h1>
+
+<dl>
+<%- for column in show_columns -%>
+  <dt>
+    <%= model.human_attribute_name column %>
+  </dt>
+  <dd>
+    <%= show_column column, resource %>
+  </dd>
+<%- end -%>
+</dl>
+
+<p>
+<%= link_to 'Edit', edit_resource_url %>
+|
+<%= link_to 'Back', collection_url %>
+</p>

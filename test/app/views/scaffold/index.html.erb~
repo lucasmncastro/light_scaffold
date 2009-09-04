@@ -1,0 +1,39 @@
+<h1>List of <%= resource_class.human_name.pluralize %></h1>
+<span>on views/scaffold</span>
+
+<table cellspacing="0">
+  <thead>
+    <tr> 
+    <%- for column in index_columns %>
+      <th><%= resource_class.human_attribute_name column %></th>
+    <%- end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%- collection.each_with_index do |resource, index| %>
+    <tr <%= "class='odd'" if index.odd? -%>>
+      <%- for column in index_columns -%>        
+        <td><%= show_column column, resource %></td>
+      <%- end -%>
+
+      <td><%=link_to 'Show', resource_url(resource), :class => 'show' %></td>
+      <td><%=link_to 'Edit', edit_resource_url(resource), :class => 'edit' %></td>
+      <td><%=link_to 'Delete', resource_url(resource), :confirm => 'Are you sure?', :method => :delete, :class => 'destroy' %></td>
+    </tr>
+    <%- end %>
+  </tbody>
+
+  <%- if collection.empty? %>
+  <tfoot>
+    <tr>
+      <td colspan="<%= index_columns.size %>">No record found.</td>
+    </tr>
+  </tfoot>
+  <%- end %>
+</table>
+
+<p>
+  <%= link_to "New #{resource_class.human_name}", new_resource_url, :class => 'new' %>
+</p>
+

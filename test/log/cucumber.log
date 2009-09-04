@@ -1,0 +1,156 @@
+# Logfile created on Fri Sep 04 10:43:09 -0300 2009REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 10:56:35) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 15ms (View: 11, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:08:49) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:09:46) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:09:58) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 16ms (View: 12, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:11:09) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 15ms (View: 11, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:11:24) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:12:29) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 15ms (View: 11, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:13:56) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:13:59) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 15ms (View: 11, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:15:36) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:15:46) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 15ms (View: 11, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:16:38) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:23:20) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:42:48) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:58:40) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:59:01) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:59:27) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 18ms (View: 13, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 11:59:52) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 12:00:31) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+Completed in 19ms (View: 14, DB: 0) | 200 OK [http://www.example.com/tasks/new]
+REQUESTING PAGE: GET /tasks/new with {} and HTTP headers {}
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-09-04 12:01:45) [GET]
+Rendering template within layouts/tasks
+Rendering tasks/new
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-09-04 12:01:45) [GET]
+  [4;36;1mTask Create (4.7ms)[0m   [0;1mINSERT INTO "tasks" ("name", "created_at", "updated_at", "priority") VALUES('name 1', '2009-09-04 15:01:45', '2009-09-04 15:01:45', 0)[0m
+  [4;35;1mTask Create (0.2ms)[0m   [0mINSERT INTO "tasks" ("name", "created_at", "updated_at", "priority") VALUES('name 2', '2009-09-04 15:01:45', '2009-09-04 15:01:45', 0)[0m
+  [4;36;1mTask Create (0.2ms)[0m   [0;1mINSERT INTO "tasks" ("name", "created_at", "updated_at", "priority") VALUES('name 3', '2009-09-04 15:01:45', '2009-09-04 15:01:45', 0)[0m
+  [4;35;1mTask Create (0.3ms)[0m   [0mINSERT INTO "tasks" ("name", "created_at", "updated_at", "priority") VALUES('name 4', '2009-09-04 15:01:45', '2009-09-04 15:01:45', 0)[0m
+REQUESTING PAGE: GET http://www.example.com/tasks with {} and HTTP headers {}
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-09-04 12:01:45) [GET]
+  [4;36;1mTask Load (0.8ms)[0m   [0;1mSELECT * FROM "tasks" [0m
+Rendering template within layouts/tasks
+Rendering tasks/index
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-09-04 12:01:45) [GET]

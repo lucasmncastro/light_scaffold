@@ -1,0 +1,20 @@
+<h1>Editing <%= resource_class.human_name %></h1>
+
+<%= error_messages_for resource %>
+
+<% form_for(resource, :url => resource_url, :html => { :method => :put }) do |f| %>
+  <% begin %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+  <% rescue %>
+    <%= render :partial => 'scaffold/form', :locals => { :f => f } %>
+  <% end %>
+
+  <p>
+    <%= submit_tag "Update", :class => 'update' %>
+  </p>
+<% end %>
+
+<p>
+  <%= link_to 'Show', resource_url, :class => 'show' %> |
+  <%= link_to 'Back', collection_url, :class => 'back' %>
+</p>

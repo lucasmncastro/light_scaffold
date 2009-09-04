@@ -1,0 +1,13 @@
+<%- for column in form_columns -%>
+<p>
+  <label for="<%= "#{resource_class}_#{column}" %>">
+    <%= resource_class.human_attribute_name column %>
+  </label>
+  
+  <% if respond_to?(helper = "#{column}_form_column") %>
+    <%= send helper, f, @object %>
+  <% else %>
+    <%= f.text_field column %>
+  <% end %>
+</p>
+<%- end -%>

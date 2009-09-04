@@ -1,0 +1,9 @@
+Thread ID: -604923688
+Total: 0.030000
+
+ %self     total     self     wait    child    calls  name
+ 33.33      0.01     0.01     0.00     0.00      411  Proc#call
+ 33.33      0.01     0.01     0.00     0.00      117  Kernel#===
+ 33.33      0.01     0.01     0.00     0.00       22  StringScanner#scan
+
+
