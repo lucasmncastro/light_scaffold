@@ -1,8 +1,8 @@
-<h1>Editing <%= model.human_name %></h1>
+<h1>Editing <%= resource_class.human_name %></h1>
 
-<%= error_messages_for model_name %>
+<%= error_messages_for resource %>
 
-<% form_for(model_name, :url => object_url, :html => { :method => :put }) do |f| %>
+<% form_for(resource, :url => resource_url, :html => { :method => :put }) do |f| %>
   <% begin %>
     <%= render :partial => 'form', :locals => { :f => f } %>
   <% rescue %>
@@ -15,6 +15,6 @@
 <% end %>
 
 <p>
-  <%= link_to 'Show', object_url, :class => 'show' %> |
+  <%= link_to 'Show', resource_url, :class => 'show' %> |
   <%= link_to 'Back', collection_url, :class => 'back' %>
 </p>

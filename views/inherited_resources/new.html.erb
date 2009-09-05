@@ -1,8 +1,8 @@
-<h1>New <%= model.human_name %></h1>
+<h1>New <%= resource_class.human_name %></h1>
 
-<%= error_messages_for model_name %>
+<%= error_messages_for resource %>
 
-<% form_for(model_name, :url => collection_url) do |f| %>
+<% form_for(resource, :url => collection_url) do |f| %>
   <% begin %>
     <%= render :partial => 'form', :locals => { :f => f } %>
   <% rescue %>
