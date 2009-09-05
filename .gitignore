@@ -3,4 +3,4 @@ test/db/development.sqlite3
 test/db/test.sqlite3
 test/log/development.log
 test/log/test.log
-*.rb~
+*~
