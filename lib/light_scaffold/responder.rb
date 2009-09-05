@@ -4,9 +4,9 @@ module LightScaffold
 
     def to_html
       if get?
-        render :action => "#{GENERIC_VIEWS_PATH}/#{controller.action_name}"
+        render "#{GENERIC_VIEWS_PATH}/#{controller.action_name}"
       elsif has_errors?
-        render :action => "#{GENERIC_VIEWS_PATH}/#{(post? ? :new : :edit)}"
+        render "#{GENERIC_VIEWS_PATH}/#{(post? ? :new : :edit)}"
       else
         redirect_to resource
       end
