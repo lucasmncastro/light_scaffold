@@ -4,8 +4,8 @@
 <table cellspacing="0">
   <thead>
     <tr> 
-    <%- for column in index_columns %>
-      <th><%= resource_class.human_attribute_name column %></th>
+    <%- for field in index_fields %>
+      <th><%= resource_class.human_attribute_name field %></th>
     <%- end %>
     </tr>
   </thead>
@@ -13,8 +13,8 @@
   <tbody>
     <%- collection.each_with_index do |resource, index| %>
     <tr <%= "class='odd'" if index.odd? -%>>
-      <%- for column in index_columns -%>        
-        <td><%= show_column column, resource %></td>
+      <%- for field in index_fields -%>        
+        <td><%= show_field field, resource %></td>
       <%- end -%>
 
       <td><%=link_to 'Show', resource_url(resource), :class => 'show' %></td>
@@ -27,7 +27,7 @@
   <%- if collection.empty? %>
   <tfoot>
     <tr>
-      <td colspan="<%= index_columns.size %>">No record found.</td>
+      <td colspan="<%= index_fields.size %>">No record found.</td>
     </tr>
   </tfoot>
   <%- end %>

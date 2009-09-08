@@ -1,11 +1,14 @@
 module TasksHelper
   include LightScaffold::Helper
   
-  index_columns :description
+  def index_fields
+    [:description]
+  end
+  # index_fields :description
   
   text_area :description
 
-  def description_column(object)
+  def description_field(object)
     content_tag :strong, object.description
   end  
 end

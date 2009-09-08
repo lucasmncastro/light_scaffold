@@ -1,12 +1,12 @@
 <h1><%= resource_class.human_name %> Details</h1>
 
 <dl>
-<%- for column in show_columns -%>
+<%- for field in show_fields -%>
   <dt>
-    <%= resource_class.human_attribute_name column %>
+    <%= resource_class.human_attribute_name field %>
   </dt>
   <dd>
-    <%= show_column column, resource %>
+    <%= show_field field, resource %>
   </dd>
 <%- end -%>
 </dl>

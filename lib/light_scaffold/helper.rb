@@ -2,27 +2,27 @@ module LightScaffold
 
   # This helper can be included in a helper to easility writing generic views;
   #
-  # Some methods define which columns will show on index, show and form views:
-  # columns, index_columns, show_columns and form_columns
+  # Some methods define which fields will show on index, show and form views:
+  # fields, index_fields, show_fields and form_fields
   module Helper
     def self.included(base)
       base.send :include, LightScaffold::Helper::InstanceMethods
       base.send :extend,  LightScaffold::Helper::ClassMethods
     end
    
-    COLUMNS_METHODS = %w(index_columns show_columns form_columns)
+    COLUMNS_METHODS = %w(index_fields show_fields form_fields)
     HIDE_COLUMNS    = %w(id created_at updated_at password)
 
     module InstanceMethods
 
-      # By default, call the #columns method.
+      # By default, call the #fields method.
       # You are free to overrides this methods.
       COLUMNS_METHODS.each do |method|
-        define_method(method) { columns }
+        define_method(method) { fields }
       end
 
       # You are free to overrides this method.
-      def columns
+      def fields
         resource_class.column_names - HIDE_COLUMNS
       end
       
@@ -30,14 +30,14 @@ module LightScaffold
         controller_name.classify.constantize
       end
       
-      # Helper used in index and show views to send show the value of a column.
+      # Helper used in index and show views to send show the value of a field.
       #
-      # If exists a method ending with <column_name>_column, it will to be sent.
-      def show_column(column, record)
-        if @template.respond_to?(helper = "#{column}_column")
+      # If exists a method ending with <field_name>_field, it will to be sent.
+      def show_field(field, record)
+        if @template.respond_to?(helper = "#{field}_field")
           @template.send helper, record
         else
-          record.send column
+          record.send field
         end
       end
     end
@@ -45,13 +45,13 @@ module LightScaffold
     # Some syntactic sugar for instance methods.
     module ClassMethods
 
-      # Sugar for columns methods.
+      # Sugar for fields methods.
       # Warning: the following code is sour. :S
-      (InstanceMethods.instance_methods - [:show_column]).each do |method|
+      (InstanceMethods.instance_methods - [:show_field]).each do |method|
         class_eval do
-          define_method(method) do |*column_names|
+          define_method(method) do |*fields|
             class_eval do
-              define_method(method) { column_names.collect(&:to_s) }
+              define_method(method) { fields.collect(&:to_s) }
             end
           end
         end
@@ -64,15 +64,14 @@ module LightScaffold
       #     text_field 'title', :class => 'strong'
       #   end
       #
-      # The title_form_column method will be created.
+      # The title_form_field method will be created.
       def method_missing(method_name, *args)
-        helper_name = method_name.to_s
-        return super unless ActionView::Helpers.instance_methods.include? helper_name
+        return super unless ActionView::Helpers.instance_methods.include? method_name.to_s
 
         field_name = args.first
   
         class_eval do
-          define_method("#{field_name}_form_column") do |form, object|
+          define_method("#{field_name}_form_field") do |form, object|
             form.send(method_name, *args)
           end
         end
