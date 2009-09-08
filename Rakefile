@@ -7,8 +7,7 @@ task :default => :test
 
 desc 'Test the light_scaffold plugin.'
 Rake::TestTask.new(:test) do |t| 
-  puts "Going to test dir..."
-  `cd test; rake test`
+  puts "Please, go to test dir and run 'rake test'."
 end
 
 desc 'Generate documentation for the light_scaffold plugin.'
