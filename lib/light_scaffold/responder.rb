@@ -1,12 +1,14 @@
 module LightScaffold
   class Responder < ActionController::Responder
-    GENERIC_VIEWS_PATH = "scaffold"
-
+    def shared_views_path 
+      'scaffold'
+    end
+    
     def to_html
       if get?
-        render "#{GENERIC_VIEWS_PATH}/#{controller.action_name}"
+        render "#{shared_views_path}/#{controller.action_name}"
       elsif has_errors?
-        render "#{GENERIC_VIEWS_PATH}/#{(post? ? :new : :edit)}"
+        render "#{shared_views_path}/#{default_action}"
       else
         redirect_to resource
       end
