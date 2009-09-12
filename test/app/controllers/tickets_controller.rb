@@ -1,8 +1,3 @@
-# Scaffold with Inherited Resources and LightScaffold::Responder using own views.
+# Scaffold with Inherited Resources using own views.
 class TicketsController < InheritedResources::Base
-
-  protected
-  def responder
-    LightScaffold::Responder
-  end
 end

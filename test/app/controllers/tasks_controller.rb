@@ -1,8 +1,3 @@
-# Scaffold with Inherited Resources and LightScaffold::Renderer using only generic views.
+# Scaffold with Inherited Resources using only shared views.
 class TasksController < InheritedResources::Base
-
-  protected
-  def responder
-    LightScaffold::Responder
-  end
 end
