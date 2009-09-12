@@ -1,44 +1,58 @@
 module LightScaffold
 
-  # This helper can be included in a helper to easility writing generic views;
+  # This helper can be included in a helper to easility writing shared views;
   #
   # Some methods define which fields will show on index, show and form views:
-  # fields, index_fields, show_fields and form_fields
+  # fields, index_fields, show_fields, form_fields, new_fields and edit_fields.
   module Helper
     def self.included(base)
       base.send :include, LightScaffold::Helper::InstanceMethods
       base.send :extend,  LightScaffold::Helper::ClassMethods
     end
    
-    COLUMNS_METHODS = %w(index_fields show_fields form_fields)
-    HIDE_COLUMNS    = %w(id created_at updated_at password)
-
     module InstanceMethods
-
-      # By default, call the #fields method.
-      # You are free to overrides this methods.
-      COLUMNS_METHODS.each do |method|
-        define_method(method) { fields }
-      end
-
-      # You are free to overrides this method.
-      def fields
-        resource_class.column_names - HIDE_COLUMNS
-      end
-      
       def resource_class
         controller_name.classify.constantize
       end
+
+      def fields
+        resource_class.column_names - hidden_fields
+      end
       
-      # Helper used in index and show views to send show the value of a field.
-      #
-      # If exists a method ending with <field_name>_field, it will to be sent.
-      def show_field(field, record)
-        if @template.respond_to?(helper = "#{field}_field")
-          @template.send helper, record
+      def hidden_fields
+        %w(id created_at updated_at password)
+      end
+
+      def index_fields
+        fields
+      end
+      
+      def show_fields 
+        fields 
+      end
+      
+      def form_fields
+        fields
+      end
+      
+      def display_field(field, resource)
+        if respond_to?(helper = "formatted_#{field}")
+          send helper, resource
         else
-          record.send field
+          resource.send field
         end
+      end
+      
+      def form_field(form, field, resource)
+        if respond_to?(helper = "#{field}_field")
+          send helper, form, resource
+        else
+          default_form_field(form, field, resource)
+        end
+      end
+      
+      def default_form_field(form, field, resource)
+        form.text_field field
       end
     end
 
@@ -46,13 +60,10 @@ module LightScaffold
     module ClassMethods
 
       # Sugar for fields methods.
-      # Warning: the following code is sour. :S
-      (InstanceMethods.instance_methods - [:show_field]).each do |method|
-        class_eval do
+      InstanceMethods.instance_methods.select {|method| method.ends_with?('_fields')}.each do |method|
+        instance_eval do
           define_method(method) do |*fields|
-            class_eval do
-              define_method(method) { fields.collect(&:to_s) }
-            end
+            define_method(method) { fields.collect(&:to_s) }
           end
         end
       end
@@ -66,14 +77,14 @@ module LightScaffold
       #
       # The title_form_field method will be created.
       def method_missing(method_name, *args)
-        return super unless ActionView::Helpers.instance_methods.include? method_name.to_s
-
         field_name = args.first
-  
-        class_eval do
-          define_method("#{field_name}_form_field") do |form, object|
+      
+        define_method("#{field_name}_field") do |form, object|
+          if form.respond_to? method_name
             form.send(method_name, *args)
-          end
+          else
+            raise NoMethodError, "this form builder doesn't respond to #{method_name}" 
+          end  
         end
       end
     end
