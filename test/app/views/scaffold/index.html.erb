@@ -1,5 +1,4 @@
 <h1>List of <%= resource_class.human_name.pluralize %></h1>
-<span>generic view</span>
 
 <table cellspacing="0">
   <thead>
@@ -14,7 +13,7 @@
     <%- collection.each_with_index do |resource, index| %>
     <tr <%= "class='odd'" if index.odd? -%>>
       <%- for field in index_fields -%>        
-        <td><%= show_field field, resource %></td>
+        <td><%= display_field field, resource %></td>
       <%- end -%>
 
       <td><%=link_to 'Show', resource_url(resource), :class => 'show' %></td>

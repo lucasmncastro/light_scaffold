@@ -42,4 +42,25 @@ class TicketsControllerTest < ActionController::TestCase
 
     assert_redirected_to tickets_path
   end
+  
+  test "should get index with shared view" do
+    get :index
+    assert_tag :tag => "span", :content => "own view"    
+  end
+
+  test "should get new with shared view" do
+    get :new
+    assert_tag :tag => "span", :content => "own view"
+  end
+
+  test "should get edit with shared view" do
+    get :edit, :id => tickets(:one)
+    assert_tag :tag => "span", :content => "own view"
+  end
+
+  test "should get show with shared view" do
+    get :show, :id => tickets(:one)
+    assert_tag :tag => "span", :content => "own view"
+  end
+
 end

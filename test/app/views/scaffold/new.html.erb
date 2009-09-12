@@ -3,11 +3,7 @@
 <%= error_messages_for resource %>
 
 <% form_for(resource, :url => collection_url) do |f| %>
-  <% begin %>
-    <%= render :partial => 'form', :locals => { :f => f } %>
-  <% rescue %>
-    <%= render :partial => 'scaffold/form', :locals => { :f => f } %>
-  <% end %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
 
   <p>
     <%= submit_tag "Create", :class => 'create' %>
