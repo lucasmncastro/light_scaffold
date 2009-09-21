@@ -2,7 +2,7 @@ require 'fileutils'
 
 namespace :light_scaffold do
 
-  namespece :install do
+  namespace :install do
     desc "Install generic views for inherited resources under app/views/scaffold."
     task :ir do
       copy_views_from('ir')
