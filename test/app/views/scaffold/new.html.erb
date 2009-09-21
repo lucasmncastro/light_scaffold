@@ -1,6 +1,6 @@
 <h1>New <%= resource_class.human_name %></h1>
 
-<%= error_messages_for resource %>
+<%= error_messages_for :object => resource %>
 
 <% form_for(resource, :url => collection_url) do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>
