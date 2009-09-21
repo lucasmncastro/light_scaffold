@@ -1,0 +1,21 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul>
+      <li class="first"><%= link_to 'Lista', collection_url %></li>
+      <li><%= link_to 'New', new_resource_url %></li>
+      <li class="active"><%= link_to 'Editar', edit_resource_url %></li>
+    </ul>
+    <div class="clear"></div>
+  </div>          
+  <div class="content">            
+    <h2 class="title">Edit <%= resource_class.human_name %></h2>
+    <div class="inner">
+      <% form_for(resource, :url => resource_url, :html => { :method => :put, :class => :form }) do |f| %>
+        <%= render :partial => "form", :locals => {:f => f} %>
+      <% end -%>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
+

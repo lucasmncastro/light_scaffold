@@ -1,0 +1,10 @@
+<%- for field in form_fields -%>
+  <div class="group">
+    <%= f.label field, field.capitalize, :class => :label %>
+    <%= form_field f, field, resource %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+<%- end -%>        
+<div class="group navform">
+  <input type="submit" class="button" value="Save &rarr;" /> or <%= link_to 'Cancel', collection_url %>
+</div>

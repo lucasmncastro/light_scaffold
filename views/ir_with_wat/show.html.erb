@@ -1,0 +1,22 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul>
+      <li class="first"><%= link_to 'List', collection_url %></li>
+      <li><%= link_to 'New', new_resource_url %></li>
+      <li class="active"><%= link_to 'Show', resource_url %></li>
+    </ul>
+    <div class="clear"></div>
+  </div>          
+  <div class="content">
+    <div class="inner">
+        <%- for field in show_fields -%>
+        <p>
+          <strong><%= resource_class.human_attribute_name field %></strong>
+          <%= display_field field, resource %>
+        </p>
+        <%- end -%>
+      <%= link_to 'Edit', edit_resource_url %>
+    </div>
+  </div>
+</div>
+
