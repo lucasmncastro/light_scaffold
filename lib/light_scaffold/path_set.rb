@@ -17,7 +17,7 @@ module LightScaffold
     end  
  
     def shared_views_prefix
-      'scaffold'
+      'shared'
     end
   end
 end
