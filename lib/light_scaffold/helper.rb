@@ -44,7 +44,7 @@ module LightScaffold
       end
       
       def form_field(form, field, resource)
-        if respond_to?(helper = "#{field}_field")
+        if respond_to?(helper = "#{field}_form_field")
           send helper, form, resource
         else
           default_form_field(form, field, resource)
@@ -79,7 +79,7 @@ module LightScaffold
       def method_missing(method_name, *args)
         field_name = args.first
       
-        define_method("#{field_name}_field") do |form, object|
+        define_method("#{field_name}_form_field") do |form, object|
           if form.respond_to? method_name
             form.send(method_name, *args)
           else
