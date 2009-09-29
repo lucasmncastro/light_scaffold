@@ -39,15 +39,19 @@ module LightScaffold
         if respond_to?(helper = "formatted_#{field}")
           send helper, resource
         else
-          resource.send field
+          default_display_field field, resource
         end
+      end
+      
+      def default_display_field(field, resource)
+        resource.send field
       end
       
       def form_field(form, field, resource)
         if respond_to?(helper = "#{field}_form_field")
           send helper, form, resource
         else
-          default_form_field(form, field, resource)
+          default_form_field form, field, resource
         end
       end
       
@@ -77,9 +81,9 @@ module LightScaffold
       #
       # The title_form_field method will be created.
       def method_missing(method_name, *args)
-        field_name = args.first
+        field = args.first
       
-        define_method("#{field_name}_form_field") do |form, object|
+        define_method("#{field}_form_field") do |form, object|
           if form.respond_to? method_name
             form.send(method_name, *args)
           else
