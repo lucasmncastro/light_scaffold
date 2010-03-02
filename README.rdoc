@@ -1,6 +1,6 @@
 = LightScaffold
 
-Done for who wants the old dynamic scaffold improved with the power of reuse and customization.
+For those who want the old dynamic scaffold with the power of customization.
 
 == Installing
 
@@ -120,6 +120,6 @@ You can use this shortcut for all the methods of ActionView::Helpers::FormHelper
 == Credits
 
 This plugin is very simple. All the magic was done by other plugins. 
-Thanks to inherit_views and inherit_resources. 
+Thanks to inherit_views, inherited_resources and resource_controller.
 
 Copyright (c) 2009 Lucas de Castro, released under the MIT license
